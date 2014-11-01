@@ -3,11 +3,10 @@ import datetime
 import time
 from email.Utils import formatdate
 from buzz import buzz
+from secret import MY_AUTH_TOKEN, MY_ACCOUNT_SID, MY_DIGITS
 
- 
-# put your own credentials here 
-ACCOUNT_SID = "AC9851b14cefed4d261e5819345e65db72" 
-AUTH_TOKEN = "7aa9111cda6210188dd5b85033eb4f96" 
+ACCOUNT_SID =MY_ACCOUNT_SID
+AUTH_TOKEN = MY_AUTH_TOKEN 
  
 client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
  
@@ -18,6 +17,6 @@ while(True):
 	messages = client.messages.list()[0:2]
 	for message in messages:
 		if formatTime<=message.date_sent:
-			if message.from_ == "+17176026004":
+			if message.from_ == MY_DIGITS:
 				if message.body == "open":
 					buzz() 
