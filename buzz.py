@@ -4,5 +4,5 @@ import time
 def buzz():
 	print 'firing'
 	GPIO.output(26, 1)
-	time.sleep(2)
+	time.sleep(1)
 	GPIO.output(26, 0)
