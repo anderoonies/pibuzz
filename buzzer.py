@@ -12,7 +12,6 @@ from twilio.rest import TwilioRestClient
 from email.Utils import formatdate, parsedate
 
 # User-defined
-from buzz import buzz
 from secret import MY_AUTH_TOKEN, MY_ACCOUNT_SID, MY_DIGITS
 
 # Constants
