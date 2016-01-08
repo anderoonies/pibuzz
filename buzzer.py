@@ -12,12 +12,12 @@ from twilio.rest import TwilioRestClient
 from email.Utils import formatdate, parsedate
 
 # User-defined
-from secret import MY_AUTH_TOKEN, MY_ACCOUNT_SID, MY_DIGITS
+from secret import AUTH_TOKEN, ACCOUNT_SID, PHONE_NUMBER
 
 # Constants
 THIS_NUMBER = +17177734070
-ACCOUNT_SID = MY_ACCOUNT_SID
-AUTH_TOKEN = MY_AUTH_TOKEN
+
+client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
 def initialize_rpi():
     """Sets up Raspberry Pi for input/output.
@@ -41,7 +41,7 @@ def is_valid(message):
     recent_time = current_time - 1
 
     return ((recent_time <= date_sent) and
-             message.from_ == MY_DIGITS)
+             message.from_ == PHONE_NUMBER)
 
 def listen():
     while(True):
